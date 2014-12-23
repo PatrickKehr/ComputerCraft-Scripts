@@ -37,8 +37,6 @@ function Button.draw(button)
     local currentTerm = term.current
     if button.monitor then
         term.redirect(button.monitor)
-    else
-        term.redirect(currentTerm)
     end
     
     if button.state then
