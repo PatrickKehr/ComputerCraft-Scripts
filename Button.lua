@@ -56,12 +56,12 @@ function Button.draw(button)
     end
   end
 
-  local xmid = math.floor(((x2 - x1) - string.len(button.text)) / 2)
-  local ymid = math.floor((y2 - y1) / 2)
+  local xmid = math.floor(((x2 + x1) - string.len(button.text)) / 2)
+  local ymid = math.floor((y2 + y1) / 2)
   term.setCursorPos(xmid, ymid)
   term.write(button.text)
   term.setBackgroundColor(colors.black)
-  term.redirect(currentTerm)
+  term.redirect(term.native())
 end
 
 function Button.click(button)
@@ -75,7 +75,7 @@ function Button.click(button)
     local currentState = button.state
     button.state = not button.state
     Button.draw(button)
-    button.onClick(term.native)
+    button.onClick(currentState)
   end
 end
 
