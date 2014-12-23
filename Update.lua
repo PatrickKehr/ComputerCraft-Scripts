@@ -2,9 +2,9 @@
 -- Automatically downloads ComputerCraft programs to a computer
 
 urls = {
-    {"Button",       "test"},
-    {"MiningTurtle", "test"},
-    {"update",       "test"}
+    {"Button",       "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/Button.lua"},
+    {"MiningTurtle", "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/MiningTurtle.lua"},
+    {"update",       "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/Update.lua"}
 }
 
 function download(name, url)
