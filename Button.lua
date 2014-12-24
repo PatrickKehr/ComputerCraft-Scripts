@@ -81,6 +81,7 @@ function Button.click(button)
   end
 end
 
+-- Returns the four corner coordinates of the button
 function Button.getBounds(button)
   return button.x, button.y, (button.x + button.width), (button.y + button.height - 1)
 end
@@ -108,6 +109,9 @@ function Button.updateLoop()
   end
 end
 
+-- Function to be used with EventListener.lua
+-- When called, it checks the buttons table to see if any buttons have been
+-- clicked, if so, it calls click on that function
 function Button.handleEvent(event)
   for i, button in pairs(buttons) do
     Button.draw(button)
@@ -118,6 +122,7 @@ function Button.handleEvent(event)
     for i, button in pairs(buttons) do
       if Button.inBounds(button, x, y) then
         Button.click(button)
+        break
       end
     end
   end
