@@ -112,10 +112,9 @@ function Button.handleEvent(event)
   for i, button in pairs(buttons) do
     Button.draw(button)
   end
-    
-  -- Wait for a click event
-  event, side, x, y = unpack{event}
-  if event == "mouse_click" or event == "monitor_touch" then
+
+  eventType, side, x, y = unpackevent
+  if eventType == "mouse_click" or eventType == "monitor_touch" then
     for i, button in pairs(buttons) do
       if Button.inBounds(button, x, y) then
         Button.click(button)
