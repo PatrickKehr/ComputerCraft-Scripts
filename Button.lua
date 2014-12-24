@@ -112,7 +112,7 @@ end
 -- Function to be used with EventListener.lua
 -- When called, it checks the buttons table to see if any buttons have been
 -- clicked, if so, it calls click on that function
-function Button.handleEvent(event)
+function Button.eventHandler(event)
   for i, button in pairs(buttons) do
     Button.draw(button)
   end
