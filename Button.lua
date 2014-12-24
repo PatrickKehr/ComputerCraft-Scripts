@@ -34,6 +34,7 @@ function Button:new(o)
 end
 
 function Button.draw(button)
+  local oldx, oldy = term.getCursorPos()
   if button.monitor then
     term.redirect(button.monitor)
   else
@@ -62,6 +63,7 @@ function Button.draw(button)
   term.write(button.text)
   term.setBackgroundColor(colors.black)
   term.redirect(term.native())
+  term.setCursorPos(oldx, oldy)
 end
 
 function Button.click(button)
@@ -106,7 +108,7 @@ function Button.updateLoop()
   end
 end
 
-function handleEvent(event)
+function Button.handleEvent(event)
   for i, button in pairs(buttons) do
     Button.draw(button)
   end
