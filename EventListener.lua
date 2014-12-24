@@ -4,14 +4,27 @@ EventListener = {}
 --           do something on that event.
 function EventListener.init()
   events = {
-    char = {},
     key = {},
+    char = {},
+    disk = {},
+    paste = {},
     timer = {},
+    alarm = {},
     redstone = {},
     terminate = {},
+    disk_eject = {},
     peripheral = {},
+    term_resize = {},
     mouse_click = {},
-    monitor_touch = {}
+    mouse_scroll = {},
+    http_success = {},
+    http_failure = {},
+    modem_message = {},
+    monitor_touch = {},
+    monitor_resize = {},
+    rednet_message = {},
+    turtle_inventory = {},
+    peripheral_detach = {}
   }
 end
 
