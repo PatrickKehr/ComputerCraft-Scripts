@@ -30,7 +30,7 @@ end
 
 -- Recieves an os.pullEvent() and calls the associated functions
 function EventListener.runEvent(event)
-  for _, functionTable in ipairs(events[event[1]]) do
+  for _, functionTable in pairs(events[event[1]]) do
     functionTable["func"](event)
   end
 end
