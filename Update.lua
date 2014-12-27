@@ -33,4 +33,4 @@ for key, value in ipairs(urls) do
     download(unpack(value))
 end
 
-os.reboot()
+-- os.reboot()
