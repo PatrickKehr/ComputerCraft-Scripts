@@ -29,6 +29,10 @@ function EventListener.init()
 end
 
 function EventListener.add(eventType, eventName, eventFunction)
+  if not events then
+    EventListener.init()
+  end
+
   if events[eventType] then
     table.insert(events[eventType], {name = eventName, func = eventFunction})
   else
@@ -62,6 +66,6 @@ function EventListener.updateLoop(updateFequency, stop, fun)
   while not stop do
     fun()
     os.startTimer(updateFequency)
-    EventListener.runEvent(os.pullEvent())
+    EventListener.runEvent({os.pullEvent()})
   end
 end

@@ -74,15 +74,19 @@ function drawText()
   end
 end
 
+local xmid, ymid = mon.getSize()
+xmid = xmid / 2
+ymid = ymid / 2
+
 -- Buttons
 reactorControl = {
   width = 12,
-  x = math.floor(((x2 + x1) - width) / 2),
-  y = math.floor((y2 + y1) / 2),
+  x = xmid - 6,
+  y = ymid,
   height = 3,
   monitor = mon,
   text = "Reactor",
-  state = getActive(),
+  state = reactor.getActive(),
   toggle = true,
   onClick = function(s)
     reactor.setActive(s)
@@ -102,19 +106,25 @@ quit = {
   end
 }
 
-Button:new(reactorControl)
-Button:new(quit)
+function main()
+  Button:new(reactorControl)
+  Button:new(quit)
 
-EventListener.add("monitor_touch", "ButtonTouch", Button.eventHandler)
-EventListener.add("mouse_click", "ButtonClick", Button.eventHandler)
-EventListener.add("redstone", "ButtonTouch", function()
-    reactor.setActive(redstone.getInput(redstoneSide))
-    reactorControl.sate = reactor.getActive()
-    Button.drawAll()
-  end
-)
+  EventListener.add("monitor_touch", "ButtonTouch", Button.eventHandler)
+  EventListener.add("mouse_click", "ButtonClick", Button.eventHandler)
+  EventListener.add("redstone", "ButtonTouch", function()
+      reactor.setActive(redstone.getInput(redstoneSide))
+      reactorControl.sate = reactor.getActive()
+      Button.drawAll()
+    end
+  )
 
-EventListener.updateLoop(1, running, function()
-    drawText()
-  end
-)
+  drawStaticText()
+
+  EventListener.updateLoop(1, running, function()
+      drawText()
+    end
+  )
+end
+
+main()
