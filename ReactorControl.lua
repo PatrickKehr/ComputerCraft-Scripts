@@ -118,9 +118,9 @@ quit = {
   colourOff = colors.green,
   onClick = function()
     reactor.setActive(false)
+    stop = true
     mon.clear()
     term.clear()
-    running = false
   end
 }
 
@@ -139,7 +139,7 @@ function main()
 
   drawStaticText()
 
-  EventListener.updateLoop(1, running, function()
+  EventListener.updateLoop(1, stop, function()
       drawText()
     end
   )
