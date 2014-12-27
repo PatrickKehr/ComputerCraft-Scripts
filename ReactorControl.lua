@@ -21,41 +21,59 @@ if not mon then
   shell.exit()
 end
 
+
 function drawStaticText()
   mon.setCursorPos(1,1)
-  mon.wite("Status:")
-  mon.setCursorPos(1,2)
-  mon.write("Energy Stored:")
+  mon.write("Status:")
   mon.setCursorPos(1,3)
-  mon.write("Fuel Temperature:")
-  mon.setCursorPos(1,4)
-  mon.write("Case Temperature:")
-
-  mon.setCursorPos(28,1)
   mon.write("Fuel:")
-  mon.setCursorPos(28,2)
+  mon.setCursorPos(1,4)
+  mon.write("Fuel Temp:")
+
+  rightAlign, _ = mon.getSize()
+  rightAlign = rightAlign - 22
+
+  mon.setCursorPos(rightAlign,1)
+  mon.write("Time:")
+  mon.setCursorPos(rightAlign,2)
+  mon.write("Energy Stored:")
+  mon.setCursorPos(rightAlign,3)
   mon.write("Waste:")
+  mon.setCursorPos(rightAlign,4)
+  mon.write("Case Temp:")
   mon.setCursorPos(14,5)
   mon.write("Energy:")
 end
 
 function drawText()
-  mon.setCursorPos(18, 1)
+  mon.setCursorPos(12, 1)
   if reactor.getConnected() then
     mon.setTextColour(colours.green)
     mon.write("Connected")
-    mon.setTextColour(colours.white)
-    mon.setCursorPos(18, 2)
-    mon.write(reactor.getEnergyStored() .. " RF")
-    mon.setCursorPos(18, 3)
-    mon.write(reactor.getFuelTemperature() .. " C")
-    mon.setCursorPos(18, 4)
-    mon.write(reactor.getCasingTemperature() .. " C")
+    mon.setCursorPos(12, 2)
+    
+    if reactor.getActive() then
+      mon.setTextColour(colours.green)
+      mon.write("Online")
+    else
+      mon.setTextColour(colours.red)
+      mon.write("Offline")
+    end
 
-    mon.setCursorPos(32, 1)
-    mon.write(reactor.getFuelAmount() .. "mB")
-    mon.setCursorPos(32, 2)
-    mon.write(reactor.getWasteAmount() .. "mB")
+    mon.setTextColour(colours.white)
+    mon.setCursorPos(12, 3)
+    mon.write(reactor.getFuelAmount() / 1000 .. "B")
+    mon.setCursorPos(12, 4)
+    mon.write(reactor.getFuelTemperature() .. " C")
+
+    mon.setCursorPos(rightAlign + 8, 1)
+    mon.write(os.time())
+    mon.setCursorPos(rightAlign + 8, 2)
+    mon.write(reactor.getEnergyStored() .. " RF")
+    mon.setCursorPos(rightAlign + 8, 3)
+    mon.write(reactor.getWasteAmount() / 1000 .. "B")
+    mon.setCursorPos(rightAlign + 8, 4)
+    mon.write(reactor.getCasingTemperature() .. " C")
 
     mon.setCursorPos(22, 5)
     local energy = reactor.getEnergyProducedLastTick()
