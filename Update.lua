@@ -2,10 +2,11 @@
 -- Automatically downloads ComputerCraft programs to a computer
 
 urls = {
-    {"Button",        "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/Button.lua"},
-    {"MiningTurtle",  "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/MiningTurtle.lua"},
-    {"EventListener", "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/EventListener.lua"},
-    {"update",        "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/Update.lua"}
+    {"Button",         "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/Button.lua"},
+    {"MiningTurtle",   "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/MiningTurtle.lua"},
+    {"EventListener",  "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/EventListener.lua"},
+    {"ReactorControl", "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/ReactorControl.lua"}
+    {"update",         "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/Update.lua"}
 }
 
 function download(name, url)
