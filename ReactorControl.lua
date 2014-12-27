@@ -66,16 +66,16 @@ function drawText()
     mon.setCursorPos(12, 4)
     mon.write(reactor.getFuelTemperature() .. " C")
 
-    mon.setCursorPos(rightAlign + 8, 1)
+    mon.setCursorPos(rightAlign + 12, 1)
     mon.write(os.time())
-    mon.setCursorPos(rightAlign + 8, 2)
+    mon.setCursorPos(rightAlign + 12, 2)
     mon.write(reactor.getEnergyStored() .. " RF")
-    mon.setCursorPos(rightAlign + 8, 3)
+    mon.setCursorPos(rightAlign + 12, 3)
     mon.write(reactor.getWasteAmount() / 1000 .. "B")
-    mon.setCursorPos(rightAlign + 8, 4)
+    mon.setCursorPos(rightAlign + 12, 4)
     mon.write(reactor.getCasingTemperature() .. " C")
 
-    mon.setCursorPos(22, 5)
+    mon.setCursorPos(24, 5)
     local energy = reactor.getEnergyProducedLastTick()
     
     if energy > 100 then
