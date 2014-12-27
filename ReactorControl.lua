@@ -71,6 +71,7 @@ function drawText()
   else
     mon.setTextColour(colours.red)
     mon.write("Disconected")
+  end
 end
 
 -- Buttons
@@ -79,7 +80,7 @@ reactorControl = {
   x = math.floor(((x2 + x1) - width) / 2),
   y = math.floor((y2 + y1) / 2),
   height = 3,
-  monitor = mon
+  monitor = mon,
   text = "Reactor",
   state = getActive(),
   toggle = true,
@@ -89,10 +90,10 @@ reactorControl = {
 }
 
 quit = {
-  x = term.getSize() - 12
-  text = "Quit"
-  colourOn = colors.red
-  colourOff = colors.green
+  x = term.getSize() - 12,
+  text = "Quit",
+  colourOn = colors.red,
+  colourOff = colors.green,
   onClick = function()
     reactor.setActive(false)
     mon.clear()

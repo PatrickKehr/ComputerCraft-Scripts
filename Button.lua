@@ -6,8 +6,8 @@ Button.prototype = {
   width = 12, height = 1,
   
   text = "Button",
-  textOn = "On"
-  textOff = "Off"
+  textOn = "On",
+  textOff = "Off",
   monitor = nil,
   
   state = true,
