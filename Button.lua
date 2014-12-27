@@ -6,6 +6,8 @@ Button.prototype = {
   width = 12, height = 1,
   
   text = "Button",
+  textOn = "On"
+  textOff = "Off"
   monitor = nil,
   
   state = true,
@@ -113,9 +115,7 @@ end
 -- When called, it checks the buttons table to see if any buttons have been
 -- clicked, if so, it calls click on that function
 function Button.eventHandler(event)
-  for i, button in pairs(buttons) do
-    Button.draw(button)
-  end
+  Button.drawAll()
 
   eventType, side, x, y = unpack(event)
   if eventType == "mouse_click" or eventType == "monitor_touch" then
@@ -128,6 +128,8 @@ function Button.eventHandler(event)
   end
 end
 
-function Button.init()
-  coroutine.create(Button.updateLoop())
+function Button.drawAll()
+  for i, button in pairs(buttons) do
+    Button.draw(button)
+  end
 end

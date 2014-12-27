@@ -57,3 +57,11 @@ function EventListener.runEvent(event)
     functionTable["func"](event)
   end
 end
+
+function EventListener.updateLoop(updateFequency, stop, fun)
+  while not stop do
+    fun()
+    os.startTimer(updateFequency)
+    EventListener.runEvent(os.pullEvent())
+  end
+end
