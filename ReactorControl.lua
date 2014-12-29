@@ -127,6 +127,7 @@ quit = {
 function main()
   Button:new(reactorControl)
   Button:new(quit)
+  Button.drawAll()
 
   EventListener.add("monitor_touch", "ButtonTouch", Button.eventHandler)
   EventListener.add("mouse_click", "ButtonClick", Button.eventHandler)
@@ -134,6 +135,15 @@ function main()
       reactor.setActive(redstone.getInput(redstoneSide))
       reactorControl.sate = reactor.getActive()
       Button.drawAll()
+    end
+  )
+
+  EventListener.add("timer", "Automatic Shut Down", function()
+      if reactor.getEnergyStored() > 750000 then
+        reactor.setActive(false)
+        reactorControl.state = false
+        Button.drawAll()
+      end
     end
   )
 
