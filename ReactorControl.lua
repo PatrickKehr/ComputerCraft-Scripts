@@ -48,11 +48,11 @@ end
 function drawText()
   for i = 1, 4 do
     mon.setCursorPos(12,i)
-    mon.wite("            ")
+    mon.write("            ")
     mon.setCursorPos(rightAlign + 12, i)
-    mon.wite("            ")
+    mon.write("            ")
   end
-  
+
   mon.setCursorPos(12, 1)
   if reactor.getConnected() then
     mon.setTextColour(colours.green)
