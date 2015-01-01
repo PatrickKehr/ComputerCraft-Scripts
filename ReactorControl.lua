@@ -146,7 +146,7 @@ function main()
   )
 
   EventListener.add("timer", "Automatic Shut Down", function()
-      if reactor.getEnergyStored() > 750000 then
+      if reactor.getEnergyStored() > 7500000 then
         reactor.setActive(false)
         reactorControl.state = false
         Button.drawAll()
