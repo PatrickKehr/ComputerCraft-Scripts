@@ -135,7 +135,7 @@ quit = {
 
 reboot = {
   x = term.getSize() - 12,
-  y = 2
+  y = 2,
   text = "Restart",
   colourOn = colors.red,
   colourOff = colors.green,
