@@ -76,10 +76,9 @@ function Button.click(button)
     button.state = true
     Button.draw(button)
   else
-    local currentState = button.state
-    button.state = not button.state
+    button.onClick(button.state)
     Button.draw(button)
-    button.onClick(currentState)
+    button.state = not button.state
   end
 end
 
