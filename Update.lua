@@ -33,4 +33,5 @@ for key, value in ipairs(urls) do
     download(unpack(value))
 end
 
--- os.reboot()
+term.clear()
+term.setCursorPos()

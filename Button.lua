@@ -76,9 +76,9 @@ function Button.click(button)
     button.state = true
     Button.draw(button)
   else
+    button.state = not button.state
     button.onClick(button.state)
     Button.draw(button)
-    button.state = not button.state
   end
 end
 
