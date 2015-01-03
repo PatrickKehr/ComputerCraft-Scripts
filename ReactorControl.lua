@@ -111,7 +111,7 @@ reactorControl = {
   height = 3,
   monitor = mon,
   text = "Reactor",
-  state = reactor.getActive(),
+  state = false,
   toggle = true,
   colourOn = colours.green,
   colourOff = colours.red,
@@ -133,9 +133,25 @@ quit = {
   end
 }
 
+reboot = {
+  x = term.getSize() - 12,
+  y = 2
+  text = "Restart",
+  colourOn = colors.red,
+  colourOff = colors.green,
+  onClick = function()
+    reactor.setActive(false)
+    stop = true
+    mon.clear()
+    term.clear()
+    shell.run("reboot")
+  end
+}
+
 function main()
   Button:new(reactorControl)
   Button:new(quit)
+  Button:new(reboot)
   Button.drawAll()
 
   EventListener.add("monitor_touch", "ButtonTouch", Button.eventHandler)
@@ -157,6 +173,7 @@ function main()
   )
 
   mon.clear()
+  reactor.setActive(false)
   drawStaticText()
 
   EventListener.updateLoop(1, stop, function()
