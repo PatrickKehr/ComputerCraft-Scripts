@@ -113,6 +113,8 @@ reactorControl = {
   text = "Reactor",
   state = reactor.getActive(),
   toggle = true,
+  colourOn = colours.green,
+  colourOff = colours.red,
   onClick = function(s)
     reactor.setActive(s)
   end
@@ -154,6 +156,7 @@ function main()
     end
   )
 
+  mon.clear()
   drawStaticText()
 
   EventListener.updateLoop(1, stop, function()
