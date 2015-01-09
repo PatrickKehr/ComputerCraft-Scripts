@@ -21,6 +21,8 @@ if not mon then
   shell.exit()
 end
 
+rightAlign, _ = mon.getSize()
+rightAlign = rightAlign - 22
 
 function drawStaticText()
   mon.setCursorPos(1,1)
@@ -29,9 +31,6 @@ function drawStaticText()
   mon.write("Fuel:")
   mon.setCursorPos(1,4)
   mon.write("Fuel Temp:")
-
-  rightAlign, _ = mon.getSize()
-  rightAlign = rightAlign - 22
 
   mon.setCursorPos(rightAlign,1)
   mon.write("Time:")
