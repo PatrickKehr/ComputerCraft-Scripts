@@ -187,7 +187,7 @@ reboot = {
 
 function main()
   mon.clear()
-  redstone.setBunddledOutput("bottom", 0)
+  redstone.setBundledOutput("bottom", 0)
   reactor.setActive(false)
   drawStaticText()
 
