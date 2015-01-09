@@ -130,9 +130,9 @@ aePower = {
   toggle = true,
   onClick = function(s)
     if s then
-      redstone.setBunddledOutput("bottom", colours.combine(redstone.getBundledOutput("bottom"), colours.red))
+      redstone.setBundledOutput("bottom", colours.combine(redstone.getBundledOutput("bottom"), colours.red))
     else
-      redstone.setBunddledOutput("bottom", colours.subtract(redstone.getBundledOutput("bottom"), colours.red))
+      redstone.setBundledOutput("bottom", colours.subtract(redstone.getBundledOutput("bottom"), colours.red))
     end
   end
 }
@@ -148,9 +148,9 @@ aeCrafting = {
   toggle = true,
   onClick = function(s)
     if s then
-      redstone.setBunddledOutput("bottom", colours.combine(redstone.getBundledOutput("bottom"), colours.white))
+      redstone.setBundledOutput("bottom", colours.combine(redstone.getBundledOutput("bottom"), colours.white))
     else
-      redstone.setBunddledOutput("bottom", colours.subtract(redstone.getBundledOutput("bottom"), colours.white))
+      redstone.setBundledOutput("bottom", colours.subtract(redstone.getBundledOutput("bottom"), colours.white))
     end
   end
 }
