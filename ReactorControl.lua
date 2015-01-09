@@ -106,7 +106,7 @@ ymid = ymid / 2
 -- Buttons
 reactorControl = {
   width = 12,
-  x = xmid - 6,
+  x = 4,
   y = ymid,
   height = 3,
   monitor = mon,
@@ -119,6 +119,43 @@ reactorControl = {
     reactor.setActive(s)
   end
 }
+
+aePower = {
+  width = 12,
+  x = 4,
+  y = ymid + 4,
+  height = 3,
+  monitor = mon,
+  text = "AE Power",
+  state = false,
+  toggle = true,
+  onClick = function(s)
+    if s then
+      redstone.setBunddledOutput("bottom", colours.combine(redstone.getBundledOutput("bottom"), colours.red))
+    else
+      redstone.setBunddledOutput("bottom", colours.subtract(redstone.getBundledOutput("bottom"), colours.red))
+    end
+  end
+}
+
+aeCrafting = {
+  width = 12,
+  x = 4,
+  y = ymid + 8,
+  height = 3,
+  monitor = mon,
+  text = "AE Crafting",
+  state = false,
+  toggle = true,
+  onClick = function(s)
+    if s then
+      redstone.setBunddledOutput("bottom", colours.combine(redstone.getBundledOutput("bottom"), colours.white))
+    else
+      redstone.setBunddledOutput("bottom", colours.subtract(redstone.getBundledOutput("bottom"), colours.white))
+    end
+  end
+}
+
 
 quit = {
   x = term.getSize() - 12,
@@ -149,7 +186,14 @@ reboot = {
 }
 
 function main()
+  mon.clear()
+  redstone.setBunddledOutput("bottom", 0)
+  reactor.setActive(false)
+  drawStaticText()
+
   Button:new(reactorControl)
+  Button:new(aePower)
+  Button:new(aePower)
   Button:new(quit)
   Button:new(reboot)
   Button.drawAll()
@@ -171,10 +215,6 @@ function main()
       end
     end
   )
-
-  mon.clear()
-  reactor.setActive(false)
-  drawStaticText()
 
   EventListener.updateLoop(1, stop, function()
       drawText()
