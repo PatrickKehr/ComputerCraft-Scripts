@@ -100,7 +100,7 @@ end
 
 local xmid, ymid = mon.getSize()
 xmid = xmid / 2
-ymid = ymid / 2
+ymid = ymid / 2 - 2
 
 -- Buttons
 reactorControl = {
@@ -186,17 +186,25 @@ reboot = {
 
 function main()
   mon.clear()
+  term.clear()
   redstone.setBundledOutput("bottom", 0)
   reactor.setActive(false)
+  print("Drawing Static Text")
   drawStaticText()
 
   Button:new(reactorControl)
+  print("Created reactorControl Button")
   Button:new(aePower)
+  print("Created aePower Button")
   Button:new(aePower)
+  print("Created aePower Button")
   Button:new(quit)
+  print("Created quit Button")
   Button:new(reboot)
+  print("Created reboot Button")
   Button.drawAll()
 
+  print("Adding EventListeners")
   EventListener.add("monitor_touch", "ButtonTouch", Button.eventHandler)
   EventListener.add("mouse_click", "ButtonClick", Button.eventHandler)
   EventListener.add("redstone", "ButtonTouch", function()
