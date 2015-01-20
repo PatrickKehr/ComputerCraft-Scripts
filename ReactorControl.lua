@@ -104,7 +104,7 @@ ymid = ymid / 2 - 2
 
 -- Buttons
 reactorControl = {
-  width = 12,
+  width = 13,
   x = 4,
   y = ymid,
   height = 3,
@@ -120,7 +120,7 @@ reactorControl = {
 }
 
 aePower = {
-  width = 12,
+  width = 13,
   x = 4,
   y = ymid + 4,
   height = 3,
@@ -138,7 +138,7 @@ aePower = {
 }
 
 aeCrafting = {
-  width = 12,
+  width = 13,
   x = 4,
   y = ymid + 8,
   height = 3,
@@ -205,16 +205,18 @@ function main()
   EventListener.add("mouse_click", "ButtonClick", Button.eventHandler)
   EventListener.add("redstone", "ButtonTouch", function()
       reactor.setActive(redstone.getInput(redstoneSide))
-      reactorControl.sate = reactor.getActive()
+      reactorControl.state = reactor.getActive()
       Button.drawAll()
     end
   )
 
   EventListener.add("timer", "Automatic Shut Down", function()
-      if reactor.getEnergyStored() > 7500000 then
-        reactor.setActive(false)
-        reactorControl.state = false
-        Button.drawAll()
+      if reactorString.getConnected() then
+        if reactor.getEnergyStored() > 7500000 then
+          reactor.setActive(false)
+          reactorControl.state = false
+          Button.drawAll()
+        end
       end
     end
   )
