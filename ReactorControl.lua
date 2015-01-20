@@ -211,7 +211,7 @@ function main()
   )
 
   EventListener.add("timer", "Automatic Shut Down", function()
-      if reactorString.getConnected() then
+      if reactor.getConnected() then
         if reactor.getEnergyStored() > 7500000 then
           reactor.setActive(false)
           reactorControl.state = false
