@@ -57,8 +57,10 @@ end
 -- This will only call events on the redstone table if a redstone event is 
 -- captured.
 function EventListener.runEvent(event)
-  for _, functionTable in pairs(events[event[1]]) do
-    functionTable["func"](event)
+  if events[event[1]] then
+    for _, functionTable in pairs(events[event[1]]) do
+      functionTable["func"](event)
+    end
   end
 end
 
