@@ -6,7 +6,8 @@ urls = {
     {"MiningTurtle",   repo .. "MiningTurtle.lua"},
     {"EventListener",  repo .. "EventListener.lua"},
     {"ReactorControl", repo .. "ReactorControl.lua"},
-    {"update",         repo .. "Update.lua"}
+    {"update",         repo .. "Update.lua"},
+    {"warehouseDash",  repo .. "WarehouseDashboard.lua"}
 }
 
 function download(name, url)
