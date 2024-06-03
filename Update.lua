@@ -1,12 +1,12 @@
 -- Update script
 -- Automatically downloads ComputerCraft programs to a computer
-
+repo = "https://raw.githubusercontent.com/PatrickKehr/ComputerCraft-Scripts/master/"
 urls = {
-    {"Button",         "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/Button.lua"},
-    {"MiningTurtle",   "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/MiningTurtle.lua"},
-    {"EventListener",  "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/EventListener.lua"},
-    {"ReactorControl", "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/ReactorControl.lua"},
-    {"update",         "https://raw.githubusercontent.com/Jiggins/ComputerCraft/master/Update.lua"}
+    {"Button",         repo .. "Button.lua"},
+    {"MiningTurtle",   repo .. "MiningTurtle.lua"},
+    {"EventListener",  repo .. "EventListener.lua"},
+    {"ReactorControl", repo .. "ReactorControl.lua"},
+    {"update",         repo .. "Update.lua"}
 }
 
 function download(name, url)
